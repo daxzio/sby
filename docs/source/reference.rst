@@ -300,6 +300,8 @@ The following mode/engine/solver combinations are currently supported:
 |           | ``aiger aigbmc``         |
 |           |                          |
 |           | ``aiger rIC3``           |
+|           |                          |
+|           | ``btor rIC3``            |
 +-----------+--------------------------+
 | ``prove`` | ``smtbmc [all solvers]`` |
 |           |                          |
@@ -307,9 +309,9 @@ The following mode/engine/solver combinations are currently supported:
 |           |                          |
 |           | ``aiger avy``            |
 |           |                          |
-|           | ``aiger rIC3``           |
-|           |                          |
 |           | ``aiger suprove``        |
+|           |                          |
+|           | ``aiger rIC3``           |
 |           |                          |
 |           | ``btor rIC3``            |
 +-----------+--------------------------+
@@ -389,6 +391,8 @@ The engine supports no engine options and supports the following solvers:
 +-------------------------------+---------------------------------+
 | ``pono``                      |   ``bmc``                       |
 +-------------------------------+---------------------------------+
+| ``rIC3``                      |   ``bmc``,``prove``             |
++-------------------------------+---------------------------------+
 
 Solver options are passed to the solver as additional command line options.
 
@@ -406,7 +410,7 @@ solvers:
 +-------------------------------+---------------------------------+
 | ``avy``                       |   ``prove``                     |
 +-------------------------------+---------------------------------+
-| ``rIC3``                      |   ``prove``                     |
+| ``rIC3``                      |   ``prove``,``bmc``             |
 +-------------------------------+---------------------------------+
 | ``aigbmc``                    |   ``bmc``                       |
 +-------------------------------+---------------------------------+
