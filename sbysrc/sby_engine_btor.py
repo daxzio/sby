@@ -34,7 +34,7 @@ def run(mode, task, engine_idx, engine):
     for o, a in opts:
         if o == "--seed":
             random_seed = a
-        if o == "--nomem":
+        elif o == "--nomem":
             nomem_opt = True
         elif o == "--syn":
             syn_opt = True
@@ -47,8 +47,8 @@ def run(mode, task, engine_idx, engine):
     if nomem_opt: model_name += "_nomem"
 
     if solver_args[0] == "btormc":
-        if mode != "bmc":
-            task.error("The btormc solver is only supported in bmc mode.")
+        if mode not in ["bmc", "cover"]:
+            task.error("The btormc solver is only supported in bmc and cover modes.")
         solver_cmd = ""
         if random_seed:
             solver_cmd += f"BTORSEED={random_seed} "
@@ -134,6 +134,9 @@ def run(mode, task, engine_idx, engine):
             elif common_state.solver_status == "unsat":
                 proc_status = "pass"
             elif common_state.solver_status == "unknown":
+                # Currently only rIC3 solver can return unknown.
+                # rIC3 in bmc mode returns "sat" for counterexample found
+                # and "unknown" for no counterexample found until bound k.
                 proc_status = "pass"
             else:
                 task.error(f"engine_{engine_idx}: Engine terminated without status.")
