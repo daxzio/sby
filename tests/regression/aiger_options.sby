@@ -17,7 +17,7 @@ mode_bmc: mode bmc
 mode_prove: mode prove
 mode_live: mode live
 
-depth 4
+mode_bmc: depth 4
 mode_live: expect fail
 
 [engines]
