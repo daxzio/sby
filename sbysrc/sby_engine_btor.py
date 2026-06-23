@@ -287,6 +287,9 @@ def run(mode, task, engine_idx, engine):
                 match = re.match(r".*bmc found counter-example in depth (\d+).*", line)
                 if match:
                     common_state.current_step = int(match[1])
+                match = re.match(r".*all workers unexpectedly exited.*", line)
+                if match:
+                    common_state.solver_status = "error"
                 if line == "UNSAT":
                     if common_state.solver_status is None:
                         common_state.solver_status = "unsat"

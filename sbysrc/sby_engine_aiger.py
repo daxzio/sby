@@ -138,6 +138,11 @@ def run(mode, task, engine_idx, engine):
                     proc_status = "FAIL"
             return None
 
+        if solver_args[0] == "rIC3":
+            match = re.match(r".*all workers unexpectedly exited.*", line)
+            if match:
+                proc_status = "ERROR"
+
         if proc_status is not None:
             if not end_of_cex and not produced_cex and line.isdigit():
                 produced_cex = True
