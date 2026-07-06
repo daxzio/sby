@@ -223,6 +223,7 @@ def run(mode, task, engine_idx, engine):
                     task, f"engine_{engine_idx}.trace{suffix}", [],
                     f"cd {task.workdir}; {task.exe_paths['witness']} wit2yw engine_{engine_idx}/trace{suffix}.wit model/{model}.ywb engine_{engine_idx}/trace{suffix}.yw",
                 )
+                yw_proc.checkretcode = True
                 common_state.running_procs += 1
                 yw_proc.register_exit_callback(simple_exit_callback)
 

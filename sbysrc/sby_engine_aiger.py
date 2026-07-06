@@ -192,6 +192,7 @@ def aigsmt_trace_callback(task, engine_idx, proc_status, *, run_aigsmt, smtbmc_v
         task, f"engine_{engine_idx}", [],
         f"cd {task.workdir}; {task.exe_paths['witness']} aiw2yw engine_{engine_idx}/{name}.aiw model/design_aiger.ywa engine_{engine_idx}/{name}{aiw2yw_suffix}.yw",
     )
+    witness_proc.checkretcode = True
     final_proc = witness_proc
 
     if run_aigsmt:
