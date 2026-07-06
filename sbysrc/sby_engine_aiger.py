@@ -106,6 +106,8 @@ def run(mode, task, engine_idx, engine):
     )
     if solver_args[0] not in ["avy", "rIC3"]:
         proc.checkretcode = True
+    if not json_output:
+        proc.preserve_whitespace = True
 
     proc_status = None
     produced_cex = False

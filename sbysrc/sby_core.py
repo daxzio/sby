@@ -91,6 +91,7 @@ class SbyProc:
         self.noprintregex = None
         self.notify = []
         self.linebuffer = ""
+        self.preserve_whitespace = False
         self.logstderr = logstderr
         self.silent = silent
         self.wait = False
@@ -125,7 +126,7 @@ class SbyProc:
             self.task.log(f"{click.style(self.info, fg='magenta')}: {line}")
 
     def handle_output(self, line):
-        if self.terminated or len(line) == 0:
+        if self.terminated or (len(line) == 0 and not self.preserve_whitespace):
             return
         if self.output_callback is not None:
             line = self.output_callback(line)
@@ -296,7 +297,11 @@ class SbyProc:
             if outs[-1] != '\n':
                 self.linebuffer += outs
                 break
-            outs = (self.linebuffer + outs).strip()
+            outs = self.linebuffer + outs
+            if self.preserve_whitespace:
+                outs = outs.rstrip("\r\n")
+            else:
+                outs = outs.strip()
             self.linebuffer = ""
             self.handle_output(outs)
 
