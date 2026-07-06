@@ -293,6 +293,8 @@ The following mode/engine/solver combinations are currently supported:
 |           |                          |
 |           | ``btor pono``            |
 |           |                          |
+|           | ``btor rIC3``            |
+|           |                          |
 |           | ``abc bmc3``             |
 |           |                          |
 |           | ``abc sim3``             |
@@ -300,8 +302,6 @@ The following mode/engine/solver combinations are currently supported:
 |           | ``aiger aigbmc``         |
 |           |                          |
 |           | ``aiger rIC3``           |
-|           |                          |
-|           | ``btor rIC3``            |
 +-----------+--------------------------+
 | ``prove`` | ``smtbmc [all solvers]`` |
 |           |                          |
@@ -410,7 +410,7 @@ solvers:
 +-------------------------------+---------------------------------+
 | ``avy``                       |   ``prove``                     |
 +-------------------------------+---------------------------------+
-| ``rIC3``                      |   ``prove``, ``bmc``            |
+| ``rIC3``                      |   ``bmc``, ``prove``            |
 +-------------------------------+---------------------------------+
 | ``aigbmc``                    |   ``bmc``                       |
 +-------------------------------+---------------------------------+
