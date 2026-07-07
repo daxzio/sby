@@ -181,6 +181,9 @@ def aigsmt_exit_callback(task, engine_idx, proc_status, *, run_aigsmt, smtbmc_vc
     task.update_status(proc_status)
     task.summary.set_engine_status(engine_idx, proc_status)
     task.terminate()
+    if task.opt_mode == "live":
+        # we don't have any tools to process or visualize justice (lasso) witnesses
+        return
     if proc_status == "FAIL" and (not run_aigsmt or task.opt_aigsmt != "none"):
         aigsmt_trace_callback(task, engine_idx, proc_status, run_aigsmt=run_aigsmt, smtbmc_vcd=smtbmc_vcd, smtbmc_append=smtbmc_append, sim_append=sim_append)
 
