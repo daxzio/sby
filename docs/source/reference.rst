@@ -293,11 +293,15 @@ The following mode/engine/solver combinations are currently supported:
 |           |                          |
 |           | ``btor pono``            |
 |           |                          |
+|           | ``btor rIC3``            |
+|           |                          |
 |           | ``abc bmc3``             |
 |           |                          |
 |           | ``abc sim3``             |
 |           |                          |
 |           | ``aiger aigbmc``         |
+|           |                          |
+|           | ``aiger rIC3``           |
 +-----------+--------------------------+
 | ``prove`` | ``smtbmc [all solvers]`` |
 |           |                          |
@@ -305,9 +309,11 @@ The following mode/engine/solver combinations are currently supported:
 |           |                          |
 |           | ``aiger avy``            |
 |           |                          |
+|           | ``aiger suprove``        |
+|           |                          |
 |           | ``aiger rIC3``           |
 |           |                          |
-|           | ``aiger suprove``        |
+|           | ``btor rIC3``            |
 +-----------+--------------------------+
 | ``cover`` | ``smtbmc [all solvers]`` |
 |           |                          |
@@ -385,6 +391,8 @@ The engine supports no engine options and supports the following solvers:
 +-------------------------------+---------------------------------+
 | ``pono``                      |   ``bmc``                       |
 +-------------------------------+---------------------------------+
+| ``rIC3``                      |   ``bmc``, ``prove``            |
++-------------------------------+---------------------------------+
 
 Solver options are passed to the solver as additional command line options.
 
@@ -402,7 +410,7 @@ solvers:
 +-------------------------------+---------------------------------+
 | ``avy``                       |   ``prove``                     |
 +-------------------------------+---------------------------------+
-| ``rIC3``                      |   ``prove``                     |
+| ``rIC3``                      |   ``bmc``, ``prove``            |
 +-------------------------------+---------------------------------+
 | ``aigbmc``                    |   ``bmc``                       |
 +-------------------------------+---------------------------------+
