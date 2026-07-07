@@ -138,4 +138,4 @@ rIC3
 ^^^^
   https://github.com/gipsyh/rIC3/
 
-The minimum required version of rIC3 is 1.5.2
+SBY currently supports the release version 1.5.2 of rIC3 only.
