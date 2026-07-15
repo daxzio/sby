@@ -111,6 +111,10 @@ The :sby:`[tasks]` section must appear in the ``.sby`` file before the first
 The command ``sby --dumptasks <sby_file>`` prints the list of all tasks defined in
 a given ``.sby`` file.
 
+Note that there is currently no way to specify dependencies on other tasks. For complex flows where such dependencies are needed, consider using separate ``.sby`` files, or a single file with external scripting. For an advanced example which uses tasks and external scripting to implement a multi-stage verification
+flow, see `AppNote 130: Multi-Stage Verification
+<https://yosyshq.readthedocs.io/projects/ap130>`_.
+
 Options section
 ---------------
 
@@ -178,7 +182,10 @@ options are:
 |                   |            | directory, even when not required to run the task.      |
 +-------------------+------------+---------------------------------------------------------+
 | ``skip_prep``     |   All      | Skip SBY's internal preparation step. Values: ``on``,   |
-|                   |            | ``off``. Default: ``off``                               |
+|                   |            | ``off``. Default: ``off``. For an example of how it can |
+|                   |            | be useful to disable the preparation step in complex    |
+|                   |            | flows, see `AppNote 130: Multi-Stage Verification       |
+|                   |            | <https://yosyshq.readthedocs.io/projects/ap130>`_.      |
 +-------------------+------------+---------------------------------------------------------+
 | ``smtc``          | ``bmc``,   | Pass this ``.smtc`` file to the smtbmc engine. All      |
 |                   | ``prove``, | other engines are disabled when this option is used.    |
