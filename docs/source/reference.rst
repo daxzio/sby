@@ -124,6 +124,7 @@ Mode      Description
 ``prove`` Unbounded model check to verify safety properties (``assert(...)`` statements)
 ``live``  Unbounded model check to verify liveness properties (``assert(s_eventually ...)`` statements)
 ``cover`` Generate set of shortest traces required to reach all cover() statements
+``prep``  Prepare the design and write the preprocessed model without running solver engines
 ========= ===========
 
 ..
@@ -175,6 +176,9 @@ options are:
 |                   |            | ``<name>`` this will generate the                       |
 |                   |            | ``model/design_<name>.*`` files within the working      |
 |                   |            | directory, even when not required to run the task.      |
++-------------------+------------+---------------------------------------------------------+
+| ``skip_prep``     |   All      | Skip SBY's internal preparation step. Values: ``on``,   |
+|                   |            | ``off``. Default: ``off``                               |
 +-------------------+------------+---------------------------------------------------------+
 | ``smtc``          | ``bmc``,   | Pass this ``.smtc`` file to the smtbmc engine. All      |
 |                   | ``prove``, | other engines are disabled when this option is used.    |
